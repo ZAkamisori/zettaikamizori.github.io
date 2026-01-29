@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Boudoir Rose"
-permalink: /works/book1/
+permalink: /works/boudoirrose/
 ---
 
 
