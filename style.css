@@ -1,21 +1,33 @@
 :root{
-  /* 色：甘いピンク＋生成り */
-  --bg: #ffd6e5;
-  --panel: #ffffff;
-  --panel2: #fff7fb;
-  --text: #2a1f27;
-  --muted: #6f5a66;
-  --border: #f0c2d3;
+  /* 背景：舞台の暗がり（黒紫〜深緑寄りの暗色） */
+  --bg1: #120b10;
+  --bg2: #07070a;
 
-  --link: #c2185b;
-  --linkHover: #8f1242;
+  /* 紙：古紙／羊皮紙っぽい */
+  --paper: #f4ead7;
+  --paper2:#fbf4e7;
 
-  --max: 1040px;
+  /* インク */
+  --text: #1b1617;
+  --muted:#6b5e58;
+
+  /* 真鍮（金） */
+  --gold: #b79a56;
+  --gold2:#e2cc8a;
+
+  /* 枠線 */
+  --border: rgba(183,154,86,.55);
+
+  /* リンク（インク＋金の気配） */
+  --link: #3a2c22;
+  --linkHover: #b79a56;
+
+  --max: 1100px;
   --pad: 18px;
+  --r: 14px;
 
-  --r: 16px;
-  --shadow: 0 10px 30px rgba(60,10,30,.08);
-  --shadow2: 0 2px 0 rgba(0,0,0,.03);
+  --shadow: 0 18px 45px rgba(0,0,0,.38);
+  --shadow2: 0 2px 0 rgba(0,0,0,.10);
 }
 
 html{ -webkit-text-size-adjust: 100%; }
@@ -23,20 +35,20 @@ body{
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.55), transparent 60%),
-    radial-gradient(900px 500px at 90% 0%, rgba(255,255,255,.35), transparent 55%),
-    linear-gradient(180deg, var(--bg), #ffeaf2 45%, #fff 120%);
+    radial-gradient(900px 500px at 20% 0%, rgba(183,154,86,.12), transparent 60%),
+    radial-gradient(700px 420px at 90% 10%, rgba(120,40,65,.10), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
   font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
 }
 
-/* 上部バー：リボンっぽい */
+/* 上部：劇場の銘板みたいなバー */
 .topbar{
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255,255,255,.78);
+  background: rgba(10,8,10,.72);
   backdrop-filter: blur(10px) saturate(1.2);
-  border-bottom: 1px solid rgba(240,194,211,.75);
+  border-bottom: 1px solid rgba(183,154,86,.35);
   box-shadow: var(--shadow2);
 }
 .topbar .wrap{
@@ -49,90 +61,105 @@ body{
 }
 .brand{
   font-weight: 800;
-  letter-spacing: .03em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 .brand a{
-  color: var(--text);
+  color: var(--paper2);
   text-decoration: none;
 }
-.brand a:hover{ text-decoration: underline; }
+.brand a:hover{ color: var(--gold2); text-decoration: underline; }
 .note{
-  color: var(--muted);
-  font-size: 13px;
+  color: rgba(244,234,215,.75);
+  font-size: 12px;
+  letter-spacing: .04em;
 }
 
 /* 2カラム */
 .container{
   max-width: var(--max);
-  margin: 18px auto 52px;
+  margin: 22px auto 56px;
   padding: 0 var(--pad);
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 16px;
 }
 
-/* 左：メニュー（カード） */
+/* 左：サイドバー（装丁の見返し紙） */
 .sidebar{
-  background: rgba(255,255,255,.85);
+  background: linear-gradient(180deg, rgba(244,234,215,.95), rgba(244,234,215,.88));
   border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 14px;
   box-shadow: var(--shadow);
+  position: relative;
+}
+.sidebar::before{
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(183,154,86,.35);
+  border-radius: calc(var(--r) - 6px);
+  pointer-events: none;
 }
 .sidebar h2{
-  font-size: 12px;
-  margin: 4px 0 10px;
+  font-size: 11px;
+  margin: 6px 0 12px;
   color: var(--muted);
-  letter-spacing: .08em;
+  letter-spacing: .18em;
 }
 .sidebar a{
   display: block;
   padding: 10px 12px;
-  border-radius: 12px;
+  border-radius: 10px;
   color: var(--link);
   text-decoration: none;
-  background: transparent;
 }
 .sidebar a:hover{
-  background: var(--panel2);
   color: var(--linkHover);
+  background: rgba(183,154,86,.10);
   text-decoration: underline;
 }
 
-/* 右：メイン（カード） */
+/* 右：本文カード（古紙） */
 .main{
-  background: rgba(255,255,255,.92);
+  background: linear-gradient(180deg, var(--paper2), var(--paper));
   border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 18px 18px 26px;
   box-shadow: var(--shadow);
+  position: relative;
+}
+.main::before{
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(183,154,86,.28);
+  border-radius: calc(var(--r) - 8px);
+  pointer-events: none;
 }
 
-/* 見出し：可愛いけど過剰じゃない */
+/* 見出し：ポスターっぽく（控えめに） */
 .main h1{
   font-size: 18px;
   margin: 0 0 14px;
-  letter-spacing: .04em;
+  letter-spacing: .10em;
 }
 .main h1::after{
   content: "";
   display: block;
-  height: 2px;
-  margin-top: 10px;
-  background: linear-gradient(90deg, rgba(194,24,91,.35), transparent);
-  border-radius: 99px;
+  height: 1px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, rgba(183,154,86,.85), transparent);
 }
 
 /* 一覧 */
-.list{
-  margin: 0;
-  padding-left: 18px;
-}
+.list{ margin: 0; padding-left: 18px; }
 .list li{ margin: 10px 0; }
 .list a{ color: var(--link); }
 .list a:hover{ color: var(--linkHover); }
 
-/* 小説本文：読みやすさは固定 */
+/* 小説本文：可読性を固定 */
 article{
   max-width: 46em;
   margin: 0 auto;
@@ -144,6 +171,7 @@ article{
 article h1{
   font-size: 22px;
   margin: 0 0 18px;
+  letter-spacing: .06em;
 }
 article p{ margin: 0 0 1.2em; }
 
