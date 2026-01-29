@@ -198,3 +198,11 @@ article p{ margin: 0 0 1.2em; }
 .novel article p{
   margin: 0;
 }
+
+.novelText{
+  white-space: pre-wrap;
+  font-family: "Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  font-size: 17px;
+  line-height: 2.15;
+  letter-spacing: 0.02em;
+}
