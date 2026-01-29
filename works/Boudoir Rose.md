@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "同人誌本文（作品名）"
+title: "Boudoir Rose"
 permalink: /works/book1/
 ---
 
