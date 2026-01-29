@@ -1,91 +1,126 @@
 :root{
+  /* 色：甘いピンク＋生成り */
   --bg: #ffd6e5;
   --panel: #ffffff;
-  --text: #1f2328;
-  --muted: #5f6b7a;
-　 --border: #e3a9c0;
+  --panel2: #fff7fb;
+  --text: #2a1f27;
+  --muted: #6f5a66;
+  --border: #f0c2d3;
 
-  --link: #1b5dbf;
-  --linkHover: #164a97;
+  --link: #c2185b;
+  --linkHover: #8f1242;
 
   --max: 1040px;
-  --pad: 16px;
+  --pad: 18px;
 
-  --shadow: 0 1px 0 rgba(0,0,0,.03);
+  --r: 16px;
+  --shadow: 0 10px 30px rgba(60,10,30,.08);
+  --shadow2: 0 2px 0 rgba(0,0,0,.03);
 }
 
 html{ -webkit-text-size-adjust: 100%; }
 body{
   margin: 0;
-  background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,.55), transparent 60%),
+    radial-gradient(900px 500px at 90% 0%, rgba(255,255,255,.35), transparent 55%),
+    linear-gradient(180deg, var(--bg), #ffeaf2 45%, #fff 120%);
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
 }
 
-/* ヘッダーバー */
+/* 上部バー：リボンっぽい */
 .topbar{
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(10px) saturate(1.2);
+  border-bottom: 1px solid rgba(240,194,211,.75);
+  box-shadow: var(--shadow2);
 }
 .topbar .wrap{
   max-width: var(--max);
   margin: 0 auto;
   padding: 12px var(--pad);
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: baseline;
+  gap: 12px;
 }
 .brand{
-  font-weight: 700;
-  letter-spacing: .02em;
-  white-space: nowrap;
+  font-weight: 800;
+  letter-spacing: .03em;
 }
-.brand a{ color: var(--text); text-decoration: none; }
+.brand a{
+  color: var(--text);
+  text-decoration: none;
+}
 .brand a:hover{ text-decoration: underline; }
+.note{
+  color: var(--muted);
+  font-size: 13px;
+}
 
 /* 2カラム */
 .container{
   max-width: var(--max);
-  margin: 18px auto 48px;
+  margin: 18px auto 52px;
   padding: 0 var(--pad);
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 260px 1fr;
   gap: 16px;
 }
 
-/* 左ナビ */
+/* 左：メニュー（カード） */
 .sidebar{
-  background: var(--panel);
+  background: rgba(255,255,255,.85);
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
+  border-radius: var(--r);
+  padding: 14px;
+  box-shadow: var(--shadow);
 }
 .sidebar h2{
-  font-size: 13px;
+  font-size: 12px;
   margin: 4px 0 10px;
   color: var(--muted);
-  letter-spacing: .03em;
+  letter-spacing: .08em;
 }
 .sidebar a{
   display: block;
-  padding: 10px 10px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
   color: var(--link);
   text-decoration: none;
+  background: transparent;
 }
 .sidebar a:hover{
-  background: #eef4ff;
+  background: var(--panel2);
   color: var(--linkHover);
   text-decoration: underline;
 }
 
-/* 本文エリア */
+/* 右：メイン（カード） */
 .main{
-  background: var(--panel);
+  background: rgba(255,255,255,.92);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--r);
   padding: 18px 18px 26px;
+  box-shadow: var(--shadow);
+}
+
+/* 見出し：可愛いけど過剰じゃない */
+.main h1{
+  font-size: 18px;
+  margin: 0 0 14px;
+  letter-spacing: .04em;
+}
+.main h1::after{
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, rgba(194,24,91,.35), transparent);
+  border-radius: 99px;
 }
 
 /* 一覧 */
@@ -93,11 +128,11 @@ body{
   margin: 0;
   padding-left: 18px;
 }
-.list li{ margin: 8px 0; }
+.list li{ margin: 10px 0; }
 .list a{ color: var(--link); }
 .list a:hover{ color: var(--linkHover); }
 
-/* 小説本文（最優先） */
+/* 小説本文：読みやすさは固定 */
 article{
   max-width: 46em;
   margin: 0 auto;
@@ -112,14 +147,14 @@ article h1{
 }
 article p{ margin: 0 0 1.2em; }
 
+/* リンク */
 a{ color: var(--link); }
 a:hover{ color: var(--linkHover); }
-
-.note{ color: var(--muted); font-size: 13px; }
 
 /* スマホ：1カラム */
 @media (max-width: 820px){
   .container{ grid-template-columns: 1fr; }
+  .sidebar{ order: 2; }
 }
 @media (max-width: 380px){
   article{ font-size: 16px; line-height: 1.95; }
