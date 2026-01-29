@@ -125,7 +125,7 @@ a:hover{ color: var(--link-hover); }
 /* 一覧 */
 .works{
   margin: 0;
-  padding-left: 18px;
+  padding-left: 0;
 }
 .works li{ margin: 10px 0; }
 
