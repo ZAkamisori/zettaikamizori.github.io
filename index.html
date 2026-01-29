@@ -7,31 +7,46 @@
   <link rel="stylesheet" href="style.css">
   <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="home">
 
+<body class="home">
   <main class="stage">
+
     <header class="hero">
+      <!-- トップ画像（蛾） -->
+      <img src="top_ga.png" alt="" class="hero-visual">
+
       <h1 class="logo">小説置き場</h1>
       <p class="tag">同人小説の個人サイト</p>
     </header>
 
+    <!-- 丸ボタン（画像） -->
     <nav class="bubbleNav" aria-label="メニュー">
-      <a class="bubble b1" href="#works"><span>作品</span></a>
-      <a class="bubble b2" href="about.html"><span>注意書き</span></a>
-      <a class="bubble b3" href="https://mazekike.tumblr.com/"><span>Tumblr</span></a>
+      <a class="bubble" href="#works" aria-label="作品一覧">
+        <img src="icon_novel.png" alt="novel">
+      </a>
+
+      <a class="bubble" href="about.html" aria-label="注意書き">
+        <img src="icon_about.png" alt="about">
+      </a>
+
+      <a class="bubble" href="https://mazekike.tumblr.com/" aria-label="Tumblr">
+        <img src="icon_Tumblr.png" alt="Tumblr">
+      </a>
     </nav>
 
+    <!-- 作品一覧 -->
     <section class="card" id="works">
       <h2>作品一覧</h2>
+
       <ul class="works">
         <li><a href="novel1.html">作品タイトルA</a></li>
         <!-- <li><a href="novel2.html">作品タイトルB</a></li> -->
       </ul>
+
       <p class="note">※ 作品を追加するたびに、ここに1行ずつリンクを増やします。</p>
     </section>
 
-    <footer class="foot">© yourname</footer>
+    <footer class="foot">©</footer>
   </main>
-
 </body>
 </html>
