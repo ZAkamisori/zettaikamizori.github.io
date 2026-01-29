@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: novel
 title: "Boudoir Rose"
 permalink: /works/boudoirrose/
 ---
