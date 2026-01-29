@@ -174,3 +174,13 @@ article p{ margin: 0 0 1.2em; }
   .bubble{ width: 96px; height: 96px; }
   article{ font-size: 16px; line-height: 1.95; }
 }
+
+
+/* ---- novel page tweak (1段落前提) ---- */
+.novel article{
+  max-width: 42em;
+  margin: 0 auto;
+  line-height: 2.2;
+  text-align: justify;
+}
+
